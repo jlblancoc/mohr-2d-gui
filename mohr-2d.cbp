@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="mohr-2d" />
+		<Option pch_mode="2" />
+		<Option compiler="msvc8" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/mohr-2d" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="msvc8" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="/Ox" />
+					<Add option="/DNDEBUG" />
+					<Add option="/MD" />
+					<Add option="/O2" />
+					<Add directory="D:/code/wxWidgets-2.9.5-msvc11/lib/vc_dll/mswu" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="D:/code/wxWidgets-2.9.5-msvc11/lib/vc_dll/mswu" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="/NODEFAULTLIB:libcmt.lib" />
+					<Add library="msvcrt.lib" />
+					<Add library="wxmsw28u_gl.lib" />
+					<Add library="wxmsw28u_core.lib" />
+					<Add library="wxbase28u.lib" />
+					<Add library="wxpng.lib" />
+					<Add library="wxzlib.lib" />
+					<Add directory="D:/code/wxWidgets-2.9.5-msvc11/lib/vc_dll" />
+				</Linker>
+				<ExtraCommands>
+					<Add after='mt.exe /nologo /manifest &quot;bin\Release\mohr-2d.exe.manifest&quot; /outputresource:&quot;bin\Release\mohr-2d.exe&quot;;1' />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="/DWIN32" />
+			<Add option="/D__WIN32__" />
+			<Add option="/D__WXMSW__" />
+			<Add option="/DWXUSINGDLL" />
+			<Add option="/DwxUSE_UNICODE" />
+			<Add option="/D_WINDOWS" />
+			<Add option="/EHs" />
+			<Add option="/EHc" />
+			<Add option="/D_CRT_SECURE_DEPRECATE" />
+			<Add option="/D_CRT_NONSTDC_NO_DEPRECATE" />
+			<Add option="/D_CRT_SECURE_NO_WARNINGS" />
+			<Add option="/Zc:wchar_t" />
+			<Add option="/D_VC80_UPGRADE=0x0600" />
+			<Add option="/W3" />
+			<Add directory="D:/code/wxWidgets-2.9.5-msvc11/include" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="D:/code/wxWidgets-2.9.5-msvc11/include" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="/INCREMENTAL:NO" />
+			<Add option="/SUBSYSTEM:WINDOWS" />
+			<Add library="winmm.lib" />
+			<Add library="rpcrt4.lib" />
+		</Linker>
+		<Unit filename="mohr_2dApp.cpp" />
+		<Unit filename="mohr_2dApp.h" />
+		<Unit filename="mohr_2dMain.cpp" />
+		<Unit filename="mohr_2dMain.h" />
+		<Unit filename="resource.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="wxsmith/mohr_2ddialog.wxs" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="mohr_2dApp.cpp" main="mohr_2dDialog" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxDialog wxs="wxsmith/mohr_2ddialog.wxs" src="mohr_2dMain.cpp" hdr="mohr_2dMain.h" fwddecl="0" i18n="1" name="mohr_2dDialog" language="CPP" />
+				</resources>
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
