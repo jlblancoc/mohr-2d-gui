@@ -1032,13 +1032,11 @@ void mohr_2dDialog::updateMatrixAnd3DViews()
   const Eigen::Matrix3d tensor_rot = ROT * tensor.asEigen() * ROT.transpose();
 
   // Intrinsic components:
-  const double snx = tensor_rot(0, 0);
-  const double tangx =
-      std::sqrt(square(tensor_rot.block<3, 1>(0, 0).norm()) - snx * snx);
+  const double snx   = tensor_rot(0, 0);
+  const double tangx = tensor_rot(0, 1);
 
-  const double sny = tensor_rot(1, 1);
-  const double tangy =
-      std::sqrt(square(tensor_rot.block<3, 1>(0, 1).norm()) - sny * sny);
+  const double sny   = tensor_rot(1, 1);
+  const double tangy = tensor_rot(1, 0);
 
   const double snz = tensor_rot(2, 2);
   const double tangz =
@@ -1132,20 +1130,23 @@ void mohr_2dDialog::updateMatrixAnd3DViews()
   const double C23_center = 0.5 * (eVals[2] + eVals[1]);
   const double C23_radius = 0.5 * (eVals[2] - eVals[1]);
 
-  gl_mohr_C13->setLocation(C13_center, 0, 0);
-  gl_mohr_C13b->setLocation(C13_center, 0, 0);
+  const double z13 = -0.010, z13b = -0.009, z12 = -0.008, z12b = -0.007,
+               z23 = -0.006, z23b = -0.005;
+
+  gl_mohr_C13->setLocation(C13_center, 0, z13);
+  gl_mohr_C13b->setLocation(C13_center, 0, z13b);
   gl_mohr_C13->setDiskRadius(C13_radius, 0);
   gl_mohr_C13b->setDiskRadius(
       C13_radius, C13_radius - std::max(0.01, 0.01 * C13_radius));
 
-  gl_mohr_C12->setLocation(C12_center, 0, 0);
-  gl_mohr_C12b->setLocation(C12_center, 0, 0);
+  gl_mohr_C12->setLocation(C12_center, 0, z12);
+  gl_mohr_C12b->setLocation(C12_center, 0, z12b);
   gl_mohr_C12->setDiskRadius(C12_radius, 0);
   gl_mohr_C12b->setDiskRadius(
       C12_radius, C12_radius - std::max(0.01, 0.01 * C12_radius));
 
-  gl_mohr_C23->setLocation(C23_center, 0, 0);
-  gl_mohr_C23b->setLocation(C23_center, 0, 0);
+  gl_mohr_C23->setLocation(C23_center, 0, z23);
+  gl_mohr_C23b->setLocation(C23_center, 0, z23b);
   gl_mohr_C23->setDiskRadius(C23_radius, 0);
   gl_mohr_C23b->setDiskRadius(
       C23_radius, C23_radius - std::max(0.01, 0.01 * C23_radius));
